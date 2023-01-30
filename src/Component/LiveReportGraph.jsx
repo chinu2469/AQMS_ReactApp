@@ -1,4 +1,7 @@
-import React from "react";
+//this function provides an circle progress whenever called
+//it needs an object as props which contains the lable of the progresscircle
+//and the value for circle for e.g. const O2obj = { name: "Oxy", val: 45 };
+import React, { useState } from "react";
 import {
   CircularProgressbar,
   CircularProgressbarWithChildren,
@@ -7,11 +10,12 @@ import {
 import "react-circular-progressbar/dist/styles.css";
 //import LiveReport from "./LiveReport";
 
-//this function provides an circle progress whenever called
-//it needs an object as props which contains the lable of the progresscircle
-//and the value for circle for e.g. const O2obj = { name: "Oxy", val: 45 };
 export default function LiveReportGraph(props) {
+  var { Color, setColor } = useState("#58e5d5");
   var dt = props.data.val;
+  var max = props.data.max + 10;
+  var min = props.data.min - 10;
+
   return (
     <div className="container-sm livedisplay">
       <h6 className="text-center">{props.data.name} level</h6>
@@ -21,6 +25,7 @@ export default function LiveReportGraph(props) {
         circleRatio={0.8}
         styles={buildStyles({
           rotation: 0.6,
+          pathColor: dt > max ? "#dc3545" : dt > min ? "#58e5d5" : "#cdab46",
           strokeLinecap: "butt",
           trailColor: "#eee",
         })}
@@ -29,9 +34,7 @@ export default function LiveReportGraph(props) {
   );
 }
 /**
- ctx = 12;
- 
-    
+  
   --------------------------------------------
   
  */

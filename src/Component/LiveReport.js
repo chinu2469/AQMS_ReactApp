@@ -11,11 +11,13 @@ function LiveReport() {
   const [livedata, setLivedata] = useState({});
   useEffect(() => {
     const getdata = setInterval(() => {
-      console.log("Runs api every 1 sec.");
+      const headers = {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      };
       axios
-        .get(baseURL)
+        .get(baseURL, { headers })
         .then((response) => {
-          console.log(response.status + "live data status");
+          console.log(response.status + " live data status");
           setLivedata(response.data);
         })
         .catch((err) => {
@@ -24,10 +26,11 @@ function LiveReport() {
     }, 3000);
     return () => clearInterval(getdata);
   }, []);
-  const O2obj = { name: "Oxy", val: 45 };
-  const CO2obj = { name: "CO2", val: 0 };
-  const SO2obj = { name: "SO2", val: 0 };
-  const Tempobj = { name: "Temp", val: 0 };
+  //setting object which is prerequisite for live graph
+  const O2obj = { name: "Oxy", val: 45, max: 90, min: 80 };
+  const CO2obj = { name: "CO2", val: 0, max: 70, min: 40 };
+  const SO2obj = { name: "SO2", val: 0, max: 90, min: 80 };
+  const Tempobj = { name: "Temp", val: 0, max: 45, min: 20 };
   //adding values to objects
   O2obj.val = livedata.o2;
   CO2obj.val = livedata.co2;
@@ -76,35 +79,15 @@ function LiveReport() {
 export default LiveReport;
 
 /*
-<LiveReportGraph data={CO2obj} />
-      <LiveReportGraph data={SO2obj} />
-      <LiveReportGraph data={Tempobj} />
-
-<LiveReportGraph data={O2obj} />
-      CO2obj.val = livedata.co2;
-   SO2obj.val = livedata.sO2;
-  Tempobj.val = livedata.Temp;
- <LiveReportGraph data={CO2obj} />
-      <LiveReportGraph data={SO2obj} />
-      <LiveReportGraph data={Tempobj} />
-      
-const baseURL = "https://localhost:7216/api/AQMSdata/";
-useEffect(() => {
-        axios.get(baseURL + "3")
-        .then(response=> {console.log(response)
-            setPost(response.data)})
-        .catch(err=> {console.log});
-    }, []);
-
-useEffect(() => {
-    axios
-      .get(baseURL)
-      .then((response) => {
+async function callApi() {
+    const headers = {
+        'Authorization': 'Bearer ' + token
+    }
+    try {
+        const response = await axios.get('https://your-api.com/endpoint', {headers});
         console.log(response.data);
-        setLivedata(response.data);
-      })
-      .catch((err) => {
-        console.log("error" + err);
-      });
-  }, []);
+    } catch (error) {
+        console.error(error);
+    }
+}
 */

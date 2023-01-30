@@ -95,7 +95,6 @@ export default class FloorWise extends React.Component {
 //this function requires an prop which gives floor no as val
 function FloorGetVal(props) {
   const [lastdata, setLastdata] = useState({});
-  //.then((response) => {lastdata = response.data;})
   var florNo = props.data;
   useEffect(() => {
     const interval = setInterval(() => {
@@ -116,7 +115,7 @@ function FloorGetVal(props) {
   //if (!livedata) return null;
   return (
     <div>
-      <h6>last record for floor</h6>
+      <h6>last record for floor {florNo}</h6>
       <table className="table">
         <thead>
           <tr>

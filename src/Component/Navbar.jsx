@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import LogOut from "../Component/LogOut.js";
 
 export default class Navbar extends React.Component {
   render() {
@@ -28,16 +29,7 @@ export default class Navbar extends React.Component {
                     Home
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Features
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Pricing
-                  </a>
-                </li>
+
                 <li className="nav-item dropdown">
                   <a
                     className="nav-link dropdown-toggle"
@@ -47,7 +39,7 @@ export default class Navbar extends React.Component {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Dropdown link
+                    Detailed Stats
                   </a>
                   <ul
                     className="dropdown-menu"
@@ -55,20 +47,28 @@ export default class Navbar extends React.Component {
                   >
                     <li>
                       <a className="dropdown-item" href="#">
-                        Action
+                        By month
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">
-                        Another action
+                        By day
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">
-                        Something else here
+                        By year
                       </a>
                     </li>
                   </ul>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="btn btn-primary nav-link active col-2"
+                    aria-current="page"
+                  >
+                    logOut
+                  </a>
                 </li>
               </ul>
             </div>
@@ -78,3 +78,4 @@ export default class Navbar extends React.Component {
     );
   }
 }
+//onClick={LogOut}
