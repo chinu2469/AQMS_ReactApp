@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import LogOut from "../Component/LogOut.js";
+import { Link } from "react-router-dom";
 
 export default class Navbar extends React.Component {
   render() {
@@ -25,9 +26,9 @@ export default class Navbar extends React.Component {
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link to="/" className="nav-link active">
                     Home
-                  </a>
+                  </Link>
                 </li>
 
                 <li className="nav-item dropdown">
@@ -46,19 +47,23 @@ export default class Navbar extends React.Component {
                     aria-labelledby="navbarDropdownMenuLink"
                   >
                     <li>
-                      <a className="dropdown-item" href="#">
-                        By month
-                      </a>
+                      <Link to="/byday" className="dropdown-item">
+                        {" "}
+                        By day{" "}
+                      </Link>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#">
-                        By day
-                      </a>
+                      <Link to="/bymonth" className="dropdown-item">
+                        {" "}
+                        By Month{" "}
+                      </Link>
                     </li>
+
                     <li>
-                      <a className="dropdown-item" href="#">
-                        By year
-                      </a>
+                      <Link to="/byyear" className="dropdown-item">
+                        {" "}
+                        By year{" "}
+                      </Link>
                     </li>
                   </ul>
                 </li>

@@ -9,7 +9,6 @@ function Dashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   return (
     <>
-      <Navbar />
       {isAuthenticated ? (
         <PrivateRoute component={MainContent} />
       ) : (

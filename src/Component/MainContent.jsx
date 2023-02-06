@@ -13,11 +13,11 @@ export default class MainContent extends React.Component {
         <div className="container-fluid">
           <div className="container-fluid  border">
             <div className="row align-items-start">
-              <h5 className="col-4">Overall Report </h5>
+              <h5 className="col-3">Overall Report </h5>
               <div
                 className="col"
                 style={{
-                  width: "10px",
+                  width: "auto",
                   height: "20px",
                   backgroundColor: "#cdab46",
                 }}
@@ -26,7 +26,7 @@ export default class MainContent extends React.Component {
               <div
                 className="col"
                 style={{
-                  width: "10px",
+                  width: "auto",
                   height: "20px",
                   backgroundColor: "#58e5d5",
                 }}
@@ -35,7 +35,7 @@ export default class MainContent extends React.Component {
               <div
                 className="col"
                 style={{
-                  width: "10px",
+                  width: "auto",
                   height: "20px",
                   backgroundColor: "#dc3545",
                 }}

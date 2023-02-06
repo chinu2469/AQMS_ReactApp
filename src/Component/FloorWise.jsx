@@ -112,10 +112,9 @@ function FloorGetVal(props) {
     return () => clearInterval(interval);
   }, []);
 
-  //if (!livedata) return null;
+  //if (!livedata) return null;<h6>last record for floor {florNo}</h6>
   return (
     <div>
-      <h6>last record for floor {florNo}</h6>
       <table className="table">
         <thead>
           <tr>

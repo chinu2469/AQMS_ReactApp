@@ -4,13 +4,23 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard.js";
 import Home from "./Pages/Home.js";
 import Navbar from "./Component/Navbar.jsx";
+import ByMonth from "./Pages/ByMonth";
+import ByDay from "./Pages/ByDay";
+import ByYear from "./Pages/ByYear";
 
 function App() {
   //const [isAuthenticated, setIsAuthenticated] = useState(false);
   //localStorage.setItem("userstate", isAuthenticated);
   return (
     <BrowserRouter>
-      <Dashboard />
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route index element={<Dashboard />} />
+          <Route path="/bymonth" element={<ByMonth />} />
+          <Route path="/byday" element={<ByDay />} />
+          <Route path="/byyear" element={<ByYear />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }

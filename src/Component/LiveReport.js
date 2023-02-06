@@ -37,6 +37,10 @@ function LiveReport() {
   SO2obj.val = livedata.sO2;
   Tempobj.val = livedata.temp;
 
+  //date conversion
+  const jsonDate = livedata.date;
+  const date = new Date(jsonDate);
+
   return (
     <React.Fragment>
       <div className="container-fluid contentCentre">
@@ -47,7 +51,9 @@ function LiveReport() {
       </div>
 
       <div>
-        <h5 className="text-center mobileTxt">Last Update</h5>
+        <h5 className="text-center mobileTxt">
+          Last Update on {date.toLocaleTimeString()}
+        </h5>
         <table className="table">
           <thead>
             <tr>

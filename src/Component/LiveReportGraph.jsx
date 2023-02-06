@@ -34,6 +34,7 @@ export default function LiveReportGraph(props) {
   );
 }
 /**
+ * dt > max ? "#dc3545" : dt > min ? "#58e5d5" : "#cdab46"
   
   --------------------------------------------
   
