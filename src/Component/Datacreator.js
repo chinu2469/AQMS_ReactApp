@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 
-const baseURL = "https://localhost:7216/api/AQMSdata/";
+const baseURL = "https://aqmsapi.azurewebsites.net/api/AQMSdata/";
 
 export default function Datacretor() {
   const [post, setPost] = useState();

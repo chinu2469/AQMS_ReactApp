@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------------------------------
 import React, { useState } from "react";
 import axios from "axios";
-const baseURL = "https://localhost:7216/JwtToken";
+const baseURL = "https://aqmsapi.azurewebsites.net/JwtToken";
 
 function LoginPage(props) {
   const [User, setUser] = useState("");

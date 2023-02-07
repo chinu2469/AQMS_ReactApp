@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function Simulator() {
   //create random obj
-  const baseURL = "https://localhost:7216/api/AQMSdata/";
+  const baseURL = "https://aqmsapi.azurewebsites.net/api/AQMSdata/";
 
   //post method call
 

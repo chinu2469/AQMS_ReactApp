@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 //base url to access flor data just add flor no to end
-var baseURL = "https://localhost:7216/AQMSdata/LastofFloor?floor=";
+var baseURL = "https://aqmsapi.azurewebsites.net/AQMSdata/LastofFloor?floor=";
 
 //this class cretes tabs for floors and present respective data
 export default class FloorWise extends React.Component {

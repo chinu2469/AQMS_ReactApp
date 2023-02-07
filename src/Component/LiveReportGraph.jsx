@@ -13,8 +13,8 @@ import "react-circular-progressbar/dist/styles.css";
 export default function LiveReportGraph(props) {
   var { Color, setColor } = useState("#58e5d5");
   var dt = props.data.val;
-  var max = props.data.max + 10;
-  var min = props.data.min - 10;
+  var max = props.data.max;
+  var min = props.data.min;
 
   return (
     <div className="container-sm livedisplay">

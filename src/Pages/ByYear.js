@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const baseURL = "https://localhost:7216/AQMSdata/ByYear?year=2023";
+const baseURL = "https://aqmsapi.azurewebsites.net/AQMSdata/ByYear?year=2023";
 
 function ByYear() {
   const [byyear, setbyyear] = useState([]);

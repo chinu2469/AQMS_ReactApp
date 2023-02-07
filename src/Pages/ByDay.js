@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const baseURL = "https://localhost:7216/AQMSdata/ByDay";
+const baseURL = "https://aqmsapi.azurewebsites.net/AQMSdata/ByDay";
 
 function ByDay() {
   const [byday, setbyday] = useState([]);

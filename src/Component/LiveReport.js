@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import LiveReportGraph from "./LiveReportGraph";
 //url for accesing the  api
-const baseURL = "https://localhost:7216/AQMSdata/LastRowdata";
+const baseURL = "https://aqmsapi.azurewebsites.net/AQMSdata/LastRowdata";
 
 //this function returns the las row from table to get the current data
 //repeats every 3 sec to show live
@@ -37,9 +37,28 @@ function LiveReport() {
   SO2obj.val = livedata.sO2;
   Tempobj.val = livedata.temp;
 
-  //date conversion
+  //date conversion to indian
   const jsonDate = livedata.date;
   const date = new Date(jsonDate);
+
+  const offset = 330 * 60 * 1000; // offset in milliseconds between UTC and IST
+  const istTime = new Date(date.getTime() + offset);
+
+  const hours = istTime.getHours();
+  const minutes = istTime.getMinutes().toString().padStart(2, "0");
+  const seconds = istTime.getSeconds().toString().padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+
+  const indiaTimeString = `${hours % 12}:${minutes}:${seconds} ${ampm}`;
+
+  // const options = {
+  //   hour: "numeric",
+  //   minute: "numeric",
+  //   hour12: true,
+  // };
+
+  // const indiaTimeString = date.toLocaleTimeString("en-IN", options);
+  //toLocaleTimeString
 
   return (
     <React.Fragment>
@@ -52,7 +71,7 @@ function LiveReport() {
 
       <div>
         <h5 className="text-center mobileTxt">
-          Last Update on {date.toLocaleTimeString()}
+          Last Update on {indiaTimeString}
         </h5>
         <table className="table">
           <thead>
