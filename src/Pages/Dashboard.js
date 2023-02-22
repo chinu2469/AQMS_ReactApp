@@ -1,8 +1,8 @@
-import Navbar from "../Component/Navbar.jsx";
-import Login from "../Login.js";
+//import Navbar from "../Component/Navbar.jsx";
+import Login from "./Login.js";
 import React from "react";
 import MainContent from "../Component/MainContent";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+
 import { useState } from "react";
 
 function Dashboard() {
@@ -22,7 +22,7 @@ export default Dashboard;
 function PrivateRoute({ component: Component, ...rest }) {
   // Get the JWT from local storage
   const token = localStorage.getItem("token");
-  console.log("token is : " + token);
+  //console.log("token is : " + token);
 
   // If there is no JWT, or it is invalid, redirect to the login page
   if (token == null) {

@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
+import { baseURLinUse } from "./Datacreator"; //baseURLinUse
 
 export default function Simulator() {
   //create random obj
-  const baseURL = "https://aqmsapi.azurewebsites.net/api/AQMSdata/";
+  const baseURL = baseURLinUse + "/api/AQMSdata/";
 
   //post method call
 

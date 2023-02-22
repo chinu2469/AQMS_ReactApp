@@ -1,10 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { baseURLinUse } from "./Datacreator"; //baseURLinUse
 //base url to access flor data just add flor no to end
-var baseURL = "https://aqmsapi.azurewebsites.net/AQMSdata/LastofFloor?floor=";
+var baseURL = baseURLinUse + "/AQMSdata/LastofFloor?floor=";
 
 //this class cretes tabs for floors and present respective data
+// line no 94 have the nested function FloorGetVal
 export default class FloorWise extends React.Component {
   render() {
     var flno1 = 1;
@@ -20,12 +22,12 @@ export default class FloorWise extends React.Component {
           <li className="nav-item" role="presentation">
             <button
               className="nav-link active"
-              id="home-tab"
+              id="flor1-tab"
               data-bs-toggle="tab"
               data-bs-target="#flor1"
               type="button"
               role="tab"
-              aria-controls="home"
+              aria-controls="flor1"
               aria-selected="true"
             >
               Floor 1
@@ -34,12 +36,12 @@ export default class FloorWise extends React.Component {
           <li className="nav-item" role="presentation">
             <button
               className="nav-link"
-              id="profile-tab"
+              id="flor2-tab"
               data-bs-toggle="tab"
               data-bs-target="#flor2"
               type="button"
               role="tab"
-              aria-controls="profile"
+              aria-controls="flor2"
               aria-selected="false"
             >
               Floor2
@@ -48,12 +50,12 @@ export default class FloorWise extends React.Component {
           <li className="nav-item" role="presentation">
             <button
               className="nav-link"
-              id="contact-tab"
+              id="flor3-tab"
               data-bs-toggle="tab"
               data-bs-target="#flor3"
               type="button"
               role="tab"
-              aria-controls="contact"
+              aria-controls="flor3"
               aria-selected="false"
             >
               Floor3
@@ -65,7 +67,7 @@ export default class FloorWise extends React.Component {
             className="tab-pane fade show active"
             id="flor1"
             role="tabpanel"
-            aria-labelledby="home-tab"
+            aria-labelledby="flor1-tab"
           >
             <FloorGetVal data={flno1} />
           </div>
@@ -73,7 +75,7 @@ export default class FloorWise extends React.Component {
             className="tab-pane fade"
             id="flor2"
             role="tabpanel"
-            aria-labelledby="profile-tab"
+            aria-labelledby="flor2-tab"
           >
             <FloorGetVal data={flno2} />
           </div>
@@ -81,7 +83,7 @@ export default class FloorWise extends React.Component {
             className="tab-pane fade"
             id="flor3"
             role="tabpanel"
-            aria-labelledby="contact-tab"
+            aria-labelledby="flor3-tab"
           >
             <FloorGetVal data={flno3} />
           </div>
@@ -118,7 +120,6 @@ function FloorGetVal(props) {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">ID</th>
             <th scope="col">S.no</th>
             <th scope="col">o2</th>
             <th scope="col">Co2</th>
@@ -129,12 +130,55 @@ function FloorGetVal(props) {
         </thead>
         <tbody>
           <tr>
-            <td>{lastdata.id}</td>
             <td>{lastdata.sensorID}</td>
-            <td>{lastdata.o2}</td>
-            <td>{lastdata.co2}</td>
-            <td>{lastdata.sO2}</td>
-            <td>{lastdata.temp}</td>
+            <td
+              style={{
+                color:
+                  lastdata.o2 > 90
+                    ? "#dc3545"
+                    : lastdata.o2 > 80
+                    ? "#58e5d5"
+                    : "#cdab46",
+              }}
+            >
+              {lastdata.o2}
+            </td>
+            <td
+              style={{
+                color:
+                  lastdata.co2 > 70
+                    ? "#dc3545"
+                    : lastdata.co2 > 40
+                    ? "#58e5d5"
+                    : "#cdab46",
+              }}
+            >
+              {lastdata.co2}
+            </td>
+            <td
+              style={{
+                color:
+                  lastdata.so2 > 90
+                    ? "#dc3545"
+                    : lastdata.so2 > 80
+                    ? "#58e5d5"
+                    : "#cdab46",
+              }}
+            >
+              {lastdata.sO2}
+            </td>
+            <td
+              style={{
+                color:
+                  lastdata.temp > 45
+                    ? "#dc3545"
+                    : lastdata.temp > 20
+                    ? "#58e5d5"
+                    : "#cdab46",
+              }}
+            >
+              {lastdata.temp}
+            </td>
             <td>{lastdata.pm}</td>
           </tr>
         </tbody>

@@ -67,13 +67,13 @@ export default class Navbar extends React.Component {
                     </li>
                   </ul>
                 </li>
+                <li>
+                  <Link to="/ErrorStates" className="nav-link active">
+                    ErrorState
+                  </Link>
+                </li>
                 <li className="nav-item">
-                  <a
-                    className="btn btn-primary nav-link active col-2"
-                    aria-current="page"
-                  >
-                    logOut
-                  </a>
+                  <LogOut />
                 </li>
               </ul>
             </div>

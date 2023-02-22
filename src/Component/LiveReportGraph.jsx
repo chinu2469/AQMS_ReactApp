@@ -2,16 +2,12 @@
 //it needs an object as props which contains the lable of the progresscircle
 //and the value for circle for e.g. const O2obj = { name: "Oxy", val: 45 };
 import React, { useState } from "react";
-import {
-  CircularProgressbar,
-  CircularProgressbarWithChildren,
-  buildStyles,
-} from "react-circular-progressbar";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 //import LiveReport from "./LiveReport";
 
 export default function LiveReportGraph(props) {
-  var { Color, setColor } = useState("#58e5d5");
+  //var { Color, setColor } = useState("#58e5d5");
   var dt = props.data.val;
   var max = props.data.max;
   var min = props.data.min;
@@ -35,7 +31,7 @@ export default function LiveReportGraph(props) {
 }
 /**
  * dt > max ? "#dc3545" : dt > min ? "#58e5d5" : "#cdab46"
-  
+  ternary condition to check threshold
   --------------------------------------------
   
  */

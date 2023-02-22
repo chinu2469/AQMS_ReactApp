@@ -2,8 +2,9 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import LiveReportGraph from "./LiveReportGraph";
+import { baseURLinUse } from "./Datacreator"; //baseURLinUse
 //url for accesing the  api
-const baseURL = "https://aqmsapi.azurewebsites.net/AQMSdata/LastRowdata";
+const baseURL = baseURLinUse + "/AQMSdata/LastRowdata";
 
 //this function returns the las row from table to get the current data
 //repeats every 3 sec to show live
@@ -104,15 +105,5 @@ function LiveReport() {
 export default LiveReport;
 
 /*
-async function callApi() {
-    const headers = {
-        'Authorization': 'Bearer ' + token
-    }
-    try {
-        const response = await axios.get('https://your-api.com/endpoint', {headers});
-        console.log(response.data);
-    } catch (error) {
-        console.error(error);
-    }
-}
+
 */

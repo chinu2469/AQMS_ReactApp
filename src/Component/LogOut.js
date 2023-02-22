@@ -1,14 +1,22 @@
 import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
-//import { useHistory } from "react-router-dom";
-import Login from "../Login.js";
+import { useNavigate } from "react-router-dom";
+import Login from "../Pages/Login.js";
 
 export default function LogOut() {
-  //let history = useHistory();
-  localStorage.clear();
-  console.log("m i clicked");
-  //history.push("/new-route");
-  return <div></div>;
+  const navigate = useNavigate();
+  function Logout() {
+    localStorage.clear();
+    console.log("m i clicked");
+    return navigate("/");
+  }
+  return (
+    <div>
+      <a className="btn btn-primary nav-link active col-2" onClick={Logout}>
+        logOut
+      </a>
+    </div>
+  );
 }
 
 function TimerLogOut(props) {

@@ -1,7 +1,5 @@
 import React from "react";
-import Datacretor from "./Datacreator";
 import FloorWise from "./FloorWise";
-
 import LiveReport from "./LiveReport";
 import Simulator from "./Simulator";
 
@@ -13,6 +11,7 @@ export default class MainContent extends React.Component {
         <div className="container-fluid">
           <div className="container-fluid  border">
             <div className="row align-items-start">
+              {/* header line which shoe=ws color id */}
               <h5 className="col-3">Overall Report </h5>
               <div
                 className="col"
@@ -43,11 +42,13 @@ export default class MainContent extends React.Component {
               <div className="col">High</div>
             </div>
             <div className="container-fluid mainContent">
+              {/* the divs whic are  used to show the data live feed and the next is for floor wise */}
               <LiveReport />
               <FloorWise />
             </div>
           </div>
         </div>
+        {/* this is simmulator wich have a button this will immediately add the value to database */}
         <Simulator />
       </React.Fragment>
     );

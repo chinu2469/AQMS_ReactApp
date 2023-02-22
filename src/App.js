@@ -3,10 +3,11 @@ import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard.js";
 import Home from "./Pages/Home.js";
-import Navbar from "./Component/Navbar.jsx";
 import ByMonth from "./Pages/ByMonth";
 import ByDay from "./Pages/ByDay";
 import ByYear from "./Pages/ByYear";
+import Register from "./Pages/Register";
+import ErrorStates from "./Pages/ErrorStates";
 
 function App() {
   //const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -16,9 +17,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}>
           <Route index element={<Dashboard />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/bymonth" element={<ByMonth />} />
           <Route path="/byday" element={<ByDay />} />
           <Route path="/byyear" element={<ByYear />} />
+          <Route path="/ErrorStates" element={<ErrorStates />} />
         </Route>
       </Routes>
     </BrowserRouter>
